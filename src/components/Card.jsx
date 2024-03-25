@@ -2,7 +2,7 @@ import React from 'react'
 
 export function CardOne({src, title, description}) {
   return (
-    <div className="relative h-[400px] w-[300px] rounded-md my-4 mx-0">
+    <div className="relative h-[400px] w-[300px] rounded-md my-4 mx-0 hover:scale-105 hover:border-4 shadow-2xl shadow-orange-700 hover:border-black">
       <img
         src={src}
         alt="Event img"

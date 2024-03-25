@@ -1,4 +1,5 @@
 import React from 'react'
+import bg from '../assets/img.png'
 
 const users = [
   {
@@ -54,16 +55,12 @@ const users = [
 export function About() {
 
   return (
-    <div>
-  
-
-      <div className="mx-auto max-w-7xl px-4">
+    <div className='bg-cover bg-no-repeat bg-center h-full py-10' style={{ backgroundImage: `url(${bg})` }}>
+      <div className="mx-auto max-w-7xl px-4 bg-cover bg-no-repeat bg-center"
+      >
         {/* greetings */}
         <div className="mt-16 flex items-center">
           <div className="space-y-6 md:w-3/4">
-            <div className="max-w-max rounded-full border bg-gray-50 p-1 px-3">
-              <p className="text-xs font-semibold leading-normal md:text-sm">Join Us &rarr;</p>
-            </div>
             <p className="text-3xl font-bold text-gray-900 md:text-4xl">Meet our team</p>
             <p className="max-w-4xl text-base text-gray-700 md:text-xl">
               Our philosophy is simple — hire a team of diverse, passionate people and foster a
@@ -73,9 +70,9 @@ export function About() {
           </div>
         </div>
         {/* TEAM */}
-        <div className="grid grid-cols-1 gap-4 gap-y-6 border-b border-gray-300 py-12 pb-20 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 gap-y-6  py-12 pb-20 md:grid-cols-2 lg:grid-cols-4 ">
           {users.map((user) => (
-            <div className="rounded-md border" key={user.name}>
+            <div className="rounded-md border-2 border-black bg-opacity-30 shadow-2xl shadow-orange-700 backdrop-blur-md bg-gray-600 hover:scale-105" key={user.name}>
               <img
                 src={user.image}
                 alt={user.name}

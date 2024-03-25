@@ -1,7 +1,8 @@
 import VITLogo from '../assets/VITLogo.png'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { Menu, X } from 'lucide-react'
 import { NavLink } from 'react-router-dom'
+import BenLogo from '../assets/BenLogo.png'
 
 const menuItems = [
   {
@@ -14,19 +15,36 @@ const menuItems = [
   },
   {
     name: 'Contact',
-    to: '#',
+    to: 'contact',
   },
 ]
 
 export function Navbar() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const show = window.scrollY > 50;
+      if (show) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    document.addEventListener('scroll', handleScroll);
+    return () => {
+      document.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="relative w-full bg-black text-white">
+    <div className={`w-full sticky top-0 bg-black text-white z-50 ease-in-out ${isScrolled ? 'bg-opacity-80 backdrop-blur-md' : ''}`}>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <span>
@@ -49,12 +67,7 @@ export function Navbar() {
           </ul>
         </div>
         <div className="hidden lg:block">
-          <button
-            type="button"
-            className="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-          >
-            Button text
-          </button>
+          <img src={BenLogo} alt="Logo" className='h-16 w-full '/>
         </div>
         <div className="lg:hidden ">
           <Menu onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
@@ -96,12 +109,7 @@ export function Navbar() {
                     ))}
                   </nav>
                 </div>
-                <button
-                  type="button"
-                  className="mt-4 w-full rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
-                >
-                  Button text
-                </button>
+                <img src={BenLogo} alt="Logo" className=' ' />
               </div>
             </div>
           </div>

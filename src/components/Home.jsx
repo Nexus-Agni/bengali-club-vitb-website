@@ -1,9 +1,33 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import bg from '../assets/img.png'
 import benLogo from '../assets/BenLogo.png'
 import { CardOne } from './Card'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function Home() {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
+  const events = [
+    {
+      src : "https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      title : "Event 1",
+      description : "Event 1 description"
+    },
+    {
+      src : "https://images.pexels.com/photos/18764385/pexels-photo-18764385/free-photo-of-boys-running-alongside-the-sidewalk-in-black-and-white.jpeg",
+      title : "Event 1",
+      description : "Event 1 description"
+    },
+    {
+      src : "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=600",
+      title : "Event 1",
+      description : "Event 1 description"
+    },
+  ]
   return (
     <div className="relative w-full bg-gradient-to-b from-orange-200 via-yellow-400 to-red-600 bg-cover bg-no-repeat bg-center "
     style={{ backgroundImage: `url(${bg})` }}
@@ -21,7 +45,7 @@ export function Home() {
         </div>
         <div className="relative lg:col-span-5 lg:-mr-8 xl:col-span-6">
           <img
-            className="aspect-[3/2] object-contain lg:aspect-[3/3] lg:h-[500px] xl:aspect-[14/9]"
+            className="aspect-[3/2] object-contain lg:aspect-[3/3] lg:h-[500px] xl:aspect-[14/9] "
             src={benLogo}
             alt="Logo"
           />
@@ -29,18 +53,15 @@ export function Home() {
       </div>
 
       {/* Our events */}
-    <div className="mx-auto w-[1182px] flex-col py-10">
-        <h1 className="mt-8 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl text-center">Our Events</h1>
-        <div className='flex flex-row space-x-10 flex-wrap justify-center items-center'>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
-            <CardOne src={"https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"} title={"Event 1"} description={"Event 1 description"}/>
+      <section className='mx-auto max-w-7xl'>
+        <h1 className='text-6xl font-bold text-center mt-8'>Our Events</h1>
+        <div className='w-full flex flex-col md:flex-row flex-wrap justify-evenly items-center py-8'>
+          {/* CardOne */}
+          {events.map((event, index) => (
+            <CardOne key={index} src={event.src} title={event.title} description={event.description} />
+          ))} 
         </div>
-
-    </div >
+      </section>
 
     </div>
   )

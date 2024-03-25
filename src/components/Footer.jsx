@@ -6,13 +6,11 @@ export function Footer() {
     <div className='w-full bg-black'>
     <section className="relative overflow-hidden bg-black  py-8 w-[1182px] mx-auto">
       <div className="container relative z-10 mx-auto px-4">
-        <div className="-m-8 flex flex-wrap items-center justify-between">
+        <div className=" flex flex-wrap items-center justify-between  md:flex-row">
           <div className="w-auto p-8">
-            <a href="#">
               <div className="inline-flex items-center">
-                <img src={VITLogo} alt="" />
+                <img src={VITLogo} alt="Logo" />
               </div>
-            </a>
           </div>
           <div className="w-auto p-8">
             <ul className="-m-5 flex flex-wrap items-center">
