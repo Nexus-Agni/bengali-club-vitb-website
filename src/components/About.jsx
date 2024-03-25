@@ -1,5 +1,7 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import bg from '../assets/img.png'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const users = [
   {
@@ -54,25 +56,37 @@ const users = [
 
 export function About() {
 
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <div className='bg-cover bg-no-repeat bg-center h-full py-10' style={{ backgroundImage: `url(${bg})` }}>
       <div className="mx-auto max-w-7xl px-4 bg-cover bg-no-repeat bg-center"
       >
         {/* greetings */}
         <div className="mt-16 flex items-center">
-          <div className="space-y-6 md:w-3/4">
+          <div className="space-y-6 md:w-3/4"
+           data-aos="fade-up"
+           data-aos-easing="linear"
+           data-aos-duration="2000"
+          >
             <p className="text-3xl font-bold text-gray-900 md:text-4xl">Meet our team</p>
             <p className="max-w-4xl text-base text-gray-700 md:text-xl">
               Our philosophy is simple — hire a team of diverse, passionate people and foster a
               culture that empowers you to do your best work.
             </p>
-            <div></div>
+
           </div>
         </div>
         {/* TEAM */}
         <div className="grid grid-cols-1 gap-4 gap-y-6  py-12 pb-20 md:grid-cols-2 lg:grid-cols-4 ">
           {users.map((user) => (
-            <div className="rounded-md border-2 border-black bg-opacity-30 shadow-2xl shadow-orange-700 backdrop-blur-md bg-gray-600 hover:scale-105" key={user.name}>
+            <div className="rounded-md border-2 border-black bg-opacity-30 shadow-2xl shadow-orange-700 backdrop-blur-md bg-gray-600 hover:scale-105" key={user.name}
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="2000"
+            >
               <img
                 src={user.image}
                 alt={user.name}

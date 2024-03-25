@@ -7,15 +7,15 @@ import BenLogo from '../assets/BenLogo.png'
 const menuItems = [
   {
     name: 'Home',
-    to: '',
+    to: '/',
   },
   {
     name: 'About',
-    to: 'about',
+    to: '/about',
   },
   {
     name: 'Contact',
-    to: 'contact',
+    to: '/contact',
   },
 ]
 
@@ -54,16 +54,17 @@ export function Navbar() {
         </div>
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
-            {menuItems.map((item) => (
-              <li key={item.name} className='text-white'>
-                <NavLink
-                  to={item.to}
-                  className="text-sm font-semibold text-white hover:text-gray-200 hover:font-extrabold "
-                >
-                  {item.name}
-                </NavLink>
-              </li>
-            ))}
+          {menuItems.map((item) => (
+            <li key={item.name} className='text-white'>
+              <NavLink
+                to={item.to}
+                activeClassName="text-orange-700"
+                className="text-sm font-semibold text-white hover:font-extrabold transition-colors duration-200 ease-in-out"
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
           </ul>
         </div>
         <div className="hidden lg:block">

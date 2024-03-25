@@ -30,15 +30,24 @@ export function Home() {
   ]
   return (
     <div className="relative w-full bg-gradient-to-b from-orange-200 via-yellow-400 to-red-600 bg-cover bg-no-repeat bg-center "
+
     style={{ backgroundImage: `url(${bg})` }}
      >
 
       <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
         <div className="flex flex-col justify-center px-4 py-12 md:py-16 lg:col-span-7 lg:gap-x-6 lg:px-6 lg:py-24 xl:col-span-6">
-          <h1 className="mt-8 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl">
+          <h1 className="mt-8 text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
+          >
             People who care about your growth
           </h1>
-          <p className="mt-8 text-lg text-gray-700">
+          <p className="mt-8 text-lg text-gray-700"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur modi blanditiis
             dolores quasi eaque explicabo!
           </p>
@@ -48,17 +57,30 @@ export function Home() {
             className="aspect-[3/2] object-contain lg:aspect-[3/3] lg:h-[500px] xl:aspect-[14/9] "
             src={benLogo}
             alt="Logo"
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="2000"
           />
         </div>
       </div>
 
       {/* Our events */}
       <section className='mx-auto max-w-7xl'>
-        <h1 className='text-6xl font-bold text-center mt-8'>Our Events</h1>
-        <div className='w-full flex flex-col md:flex-row flex-wrap justify-evenly items-center py-8'>
+        <h1 className='text-6xl font-bold text-center mt-8'
+            data-aos="fade-up"
+            data-aos-easing="linear"
+            data-aos-duration="2000"
+        >Our Events</h1>
+        <div className='w-full flex flex-col md:flex-row flex-wrap justify-evenly items-center py-8'
+         data-aos="fade-up"
+         data-aos-easing="linear"
+         data-aos-duration="2000"
+        >
           {/* CardOne */}
           {events.map((event, index) => (
-            <CardOne key={index} src={event.src} title={event.title} description={event.description} />
+            <CardOne key={index} src={event.src} title={event.title} description={event.description} 
+           
+            />
           ))} 
         </div>
       </section>

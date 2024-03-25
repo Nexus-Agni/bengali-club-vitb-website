@@ -1,14 +1,24 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import bg from '../assets/img.png'
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export function Contact() {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <div style={{ backgroundImage: `url(${bg})` }} className='bg-cover bg-center bg-no-repeat'>
       <div className="mx-auto max-w-7xl px-4"  >
         {/* Hero Map */}
-        <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24  ">
+        <div className="flex flex-col space-y-8 pb-10 pt-12 md:pt-24  "
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          data-aos-duration="2000"
+        >
           <p className="text-center text-3xl font-bold text-gray-900 md:text-5xl md:leading-10">
             Love to hear from you
           </p>
@@ -20,7 +30,11 @@ export function Contact() {
         <div className="mx-auto max-w-7xl py-12 md:py-24">
           <div className="grid items-center justify-items-center gap-x-4 gap-y-10 lg:grid-cols-2">
             {/* contact from */}
-            <div className="flex items-center justify-center bg-opacity-20 backdrop-blur-sm border-2 border-black px-4 py-8 rounded-2xl shadow-2xl shadow-orange-700">
+            <div className="flex items-center justify-center bg-opacity-20 backdrop-blur-sm border-2 border-black px-4 py-8 rounded-2xl shadow-2xl shadow-orange-700"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
+            >
               <div className="px-2 md:px-12">
                 <p className="text-2xl font-bold text-gray-900 md:text-4xl">Get in touch</p>
                 <p className="mt-4 text-lg text-gray-600">
@@ -127,6 +141,9 @@ export function Contact() {
               alt="Contact us"
               className="hidden max-h-full w-full rounded-lg object-cover lg:block"
               src="https://images.unsplash.com/photo-1615840287214-7ff58936c4cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=687&h=800&q=80"
+              data-aos="fade-up"
+              data-aos-easing="linear"
+              data-aos-duration="2000"
             />
           </div>
         </div>
